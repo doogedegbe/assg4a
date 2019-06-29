@@ -11,15 +11,20 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 @Path("/greetings")
 public class HelloWorldEndpoint {
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(HelloWorldEndpoint.class);
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{year}/{month}/{day}")
 	public Response doGetDate(@PathParam("year") int year, @PathParam("month") int month, @PathParam("day") int day) {
 
 		String date = year + "/" + month + "/" + day;
+		LOGGER.info("REceived: {}",date);
 		Message message = new Message();
 		message.setName("Thorntail");
 		message.setMessage(date);
