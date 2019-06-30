@@ -1,6 +1,7 @@
 package com.drkiettran.microprofile.rest;
 
 import java.net.UnknownHostException;
+import java.sql.Date;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -26,6 +27,7 @@ public class HelloWorldEndpoint {
 		String date = year + "/" + month + "/" + day;
 		LOGGER.info("REceived: {}",date);
 		Message message = new Message();
+		
 		message.setName("Thorntail");
 		message.setMessage(date);
 		return Response.status(200).entity(message).build();
@@ -40,6 +42,7 @@ public class HelloWorldEndpoint {
 		System.out.println("inMessage: " + inMessage.getName() + ":" + inMessage.getMessage());
 
 		String date = year + "/" + month + "/" + day;
+
 		Message message = new Message();
 		Greetings greetings = new Greetings();
 		message.setName(inMessage.getName());

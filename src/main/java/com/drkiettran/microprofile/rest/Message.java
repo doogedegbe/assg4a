@@ -31,6 +31,14 @@ public class Message implements Serializable {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	@JsonProperty("date")
 	private Date date;
+	
+	public Date getDate() {
+		return date;
+		
+	}
+	public void setDate(Date date) {
+		this.date=date;
+	}
 
 	public String getName() {
 		return name;
